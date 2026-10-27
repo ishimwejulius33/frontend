@@ -34,5 +34,5 @@ This project assumes:
 - This UI cart is temporary and does not create orders or process payments.
 - The frontend expects the backend profile endpoint to return the role on `req.user`.
 - Brevo remains a backend service; its API key must never be placed in the frontend `.env`.
-- If the browser reports CORS errors, configure Express CORS to allow your frontend origin.
+- The backend allows the deployed Vercel origin and `http://localhost:5173` by default. For a different frontend domain, set `FRONTEND_URL` on the backend service to its exact origin (or a comma-separated list of origins), without a path.
 - This frontend does not use the PostgreSQL connection string directly. Only the backend connects to the database.
