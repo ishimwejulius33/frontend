@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getProducts, productsQueryKey } from "../api";
 import { useAuth } from "../context/AuthContext";
 import type { Product } from "../types";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Products() {
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [cart, setCart] = useState<Product[]>([]);
@@ -24,7 +25,7 @@ export default function Products() {
 
   function addToCart(product: Product) {
     if (!user) {
-      window.location.assign(`/login?next=${encodeURIComponent("/products")}`);
+      navigate(`/login?next=${encodeURIComponent("/products")}`);
       return;
     }
     setCart(current => [...current, product]);

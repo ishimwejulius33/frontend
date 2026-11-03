@@ -11,7 +11,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 
 function NotFound() {
-  return <section className="section"><p className="eyebrow">404</p><h1>Page not found</h1><p><a href="/">Return home</a></p></section>;
+  return <section className="section"><p className="eyebrow">404</p><h1>Page not found</h1><p><Link to="/">Return home</Link></p></section>;
 }
 export default function App() {
   return <>
